@@ -1,4 +1,4 @@
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand,CreateBucketCommand,GetObjectCommand } from "@aws-sdk/client-s3";
 import path from 'path';
 import multerConfig from '../config/multer';
 import mime from 'mime';
@@ -25,7 +25,10 @@ class S3Storage{
         }
     });
   }
-  
+ async getImage(fileName:string){
+    
+ }
+ 
   async saveFile(filename: string):Promise<void>{
     const originalPath = path.resolve(multerConfig.directory,filename);
 
