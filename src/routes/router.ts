@@ -10,8 +10,10 @@ router.post("/",upload.single('file'), async (req,res) =>{
     
    
  try{  
-       const file = req.file;
-       console.log(req.file);
+      const file = req.file;
+      const name = req.body.clientToken;
+      file.filename = name;
+      
       if(!file){
             throw new Error('objeto não encontrado');
       }

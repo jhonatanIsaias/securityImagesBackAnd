@@ -26,7 +26,12 @@ class S3Storage{
     });
   }
  async getImage(fileName:string){
-    
+    const getObejctParams ={
+      Bucket:BucketName,
+      key:''
+
+    }
+   const command =  await this.client.send(new GetObjectCommand(getObejctParams));
  }
  
   async saveFile(filename: string):Promise<void>{
